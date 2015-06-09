@@ -1,0 +1,226 @@
+/*
+ * PolymerThemes v1.0.0
+ * Homepage: https://polymerthemes.com
+ * Copyright 2015 Polymer Themes
+ * Licensed under BSD
+ * Based on Polymer: http://www.polymer-project.org/
+ * Compatible with Polymer 1.0.0
+ */
+
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  min-height: 100%;
+  color: #444444;
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
+section {
+  padding: 40px 0px;
+  text-align: center;
+}
+section[hero] {
+  background-color: #f2f7fa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1, h3, h5 {
+  font-family: 'Oxygen', sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 30px 0px;
+}
+
+h2 {
+  color: #444444;
+  font-size: 40px;
+  margin: 20px 0px;
+}
+
+h3 {
+  font-size: 25px;
+  margin: 15px 0px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  color: #444444;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+:root {
+  --dark-primary-color: #373b50;
+  --default-primary-color: #373b50;
+  --light-primary-color: #c5cae9;
+  --text-primary-color: #ffffff;
+  --accent-color: #ff4081;
+  --primary-background-color: #ffffff;
+  --primary-text-color: #444444;
+  --secondary-text-color: #444444;
+  --disabled-text-color: #313238;
+  --divider-color: #e0e0e0;
+  --paper-toolbar-background: #373b50;
+  --paper-toolbar-color: #ffffff;
+}
+
+paper-button.btn-primary, paper-button[primary] {
+  color: #373b50;
+}
+paper-button.btn-primary[raised], paper-button[primary][raised] {
+  background-color: #373b50;
+  color: #ffffff;
+}
+paper-button.btn-secondary, paper-button[secondary] {
+  color: #90a4ae;
+}
+paper-button.btn-secondary[raised], paper-button[secondary][raised] {
+  background-color: #90a4ae;
+  color: #ffffff;
+}
+paper-button.btn-success, paper-button[success] {
+  color: #9dc56e;
+}
+paper-button.btn-success[raised], paper-button[success][raised] {
+  background-color: #9dc56e;
+  color: #456026;
+}
+paper-button.btn-info, paper-button[info] {
+  color: #ffb74d;
+}
+paper-button.btn-info[raised], paper-button[info][raised] {
+  background-color: #ffb74d;
+  color: #ffffff;
+}
+paper-button.btn-warning, paper-button[warning] {
+  color: #fadd60;
+}
+paper-button.btn-warning[raised], paper-button[warning][raised] {
+  background-color: #fadd60;
+  color: #776413;
+}
+paper-button.btn-error, paper-button[error] {
+  color: #ff6e40;
+}
+paper-button.btn-error[raised], paper-button[error][raised] {
+  background-color: #ff6e40;
+  color: #ffffff;
+}
+paper-button.btn-link, paper-button[link] {
+  text-decoration: underline;
+}
+paper-button[raised] {
+  color: #444444;
+}
+paper-button[disabled] {
+  color: #313238 !important;
+  background: #afb1b9 !important;
+}
+
+paper-checkbox {
+  --paper-checkbox-checked-color: #373b50;
+  --paper-checkbox-checked-ink-color: #373b50;
+  --paper-checkbox-unchecked-color: #444444;
+  --paper-checkbox-unchecked-ink-color: #444444;
+  --paper-checkbox-label-color: #444444;
+}
+
+paper-dialog h2 {
+  padding: 0 24px;
+}
+
+paper-fab {
+  --paper-fab-background: #373b50;
+}
+
+paper-icon-button {
+  --paper-icon-button-disabled-text: #afb1b9;
+}
+
+paper-input {
+  --paper-input-container-color: #919191;
+  --paper-input-container-focus-color: #373b50;
+  --paper-input-container-invalid-color: #ff6e40;
+  --paper-input-container-input-color: #919191;
+}
+
+paper-menu {
+  --paper-menu-background-color: #f2f7fa;
+  --paper-menu-color: #444444;
+  --paper-menu-disabled-color: #afb1b9;
+}
+
+section.hero paper-menu, section[hero] paper-menu {
+  --paper-menu-background-color: #ffffff;
+}
+
+paper-progress {
+  --paper-progress-active-color: #373b50;
+  --paper-progress-secondary-color: #90a4ae;
+}
+
+paper-radio-button {
+  --paper-radio-button-checked-color: #373b50;
+  --paper-radio-button-checked-ink-color: #d6d8e3;
+  --paper-radio-button-unchecked-color: #444444;
+  --paper-radio-button-label-color: #444444;
+}
+
+paper-slider {
+  --paper-slider-knob-color: #373b50;
+  --paper-slider-active-color: #373b50;
+  --paper-slider-pin-color: #373b50;
+}
+
+paper-spinner {
+  --paper-spinner-layer-1-color: #373b50;
+  --paper-spinner-layer-2-color: #373b50;
+  --paper-spinner-layer-3-color: #373b50;
+  --paper-spinner-layer-4-color: #373b50;
+}
+
+paper-tabs {
+  --paper-tabs-selection-bar-color: #90a4ae;
+  --paper-tab-ink: #90a4ae;
+  background-color: #373b50;
+  color: #ffffff;
+}
+
+paper-tab {
+  --paper-tab-ink: #90a4ae;
+}
+
+paper-toggle-button {
+  --paper-toggle-button-unchecked-bar-color: #444444;
+  --paper-toggle-button-unchecked-button-color: white;
+  --paper-toggle-button-unchecked-ink-color: #373b50;
+  --paper-toggle-button-checked-bar-color: #373b50;
+  --paper-toggle-button-checked-button-color: #373b50;
+  --paper-toggle-button-checked-ink-color: #373b50;
+}
+
+paper-toolbar {
+  --paper-toolbar-background: #373b50;
+  --paper-toolbar-color: #ffffff;
+}

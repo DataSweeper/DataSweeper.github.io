@@ -1,21 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import"
-          href="bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="my_tags/picture-frame.html">
+    <script src="components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="my_tags/post-card.html">
 <style>
-
-    .badge-wrapper {
-        padding: 30px;
-        border-radius: 0%;
-        background: #F5F5F5;
-        box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
-        width: 100px;
-        height: 100px;
-    }
 
     html,body {
     height: 100%;
@@ -38,11 +26,7 @@
 </style>
 </head>
 <body>
-<picture-frame>
-    <img src="images/profilepic.jpg" width="50" height="50">
-</picture-frame>
 
-<core-header-panel>
 <div class="container" layout vertical center>
 
     <post-card>
@@ -53,7 +37,6 @@
     </post-card>
 
 </div>
-</core-header-panel>
-<!--<div class="badge-wrapper"></div> -->
+
 </body>
 </html>

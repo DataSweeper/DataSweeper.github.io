@@ -3,6 +3,7 @@
 <head>
     <script src="components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="my_tags/post-card.html">
+    <link rel="import" href="my_tags/post-list.html">
 <style>
 
     html,body {
@@ -29,12 +30,17 @@
 
 <div class="container" layout vertical center>
 
-    <post-card>
+<!--    <post-card>
         <img width="70" height="70"
              src="images/profilepic.jpg">
         <h2>Tools Maker.</h2>
         <p>DataSweeper:)</p>
     </post-card>
+-->
+
+    <div class="container" layout vertical center>
+        <post-list show="all"></post-list>
+    </div>
 
 </div>
 

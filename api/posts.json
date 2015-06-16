@@ -1,0 +1,16 @@
+[
+  {
+    "uid": 1,
+    "text" : "Data Sweeper",
+    "username" : "Siva",
+    "avatar" : "images/profilepic.jpg",
+    "favorite": false
+  },
+  {
+    "uid": 2,
+    "text" : "The kernel",
+    "username" : "Linux",
+    "avatar" : "images/Tux.svg",
+    "favorite": false
+  }
+]

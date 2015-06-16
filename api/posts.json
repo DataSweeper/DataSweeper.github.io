@@ -15,8 +15,8 @@
   },
   {
     "uid": 3,
-    "text" : "C-Lisp",
-    "username" : "A great language",
+    "text" : "A great language",
+    "username" : "C-Lisp",
     "avatar" : "images/clisp.png",
     "favorite": false
   }

@@ -3,6 +3,7 @@
 <head>
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link rel="import" href="my_tags/picture-frame.html">
+    <link rel="import" href="my_tags/post-card.html">
 <style>
 
     .badge-wrapper {
@@ -19,12 +20,30 @@
     background-color: #E5E5E5;
     font-family: 'RobotoDraft', sans-serif;
     }
+
+    .container {
+    width: 80%;
+    margin: 50px auto;
+    }
+
 </style>
 </head>
 <body>
 <picture-frame>
     <img src="images/profilepic.jpg" width="50" height="50">
 </picture-frame>
+
+<div class="container" layout vertical center>
+
+    <post-card>
+        <img width="70" height="70"
+             src="../images/avatar-07.svg">
+        <h2>Another Developer</h2>
+        <p>I'm composing with shadow DOM!</p>
+    </post-card>
+
+</div>
+
 <div class="badge-wrapper"></div>
 </body>
 </html>

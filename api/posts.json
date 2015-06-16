@@ -12,5 +12,12 @@
     "username" : "Linux",
     "avatar" : "images/Tux.svg",
     "favorite": false
+  },
+  {
+    "uid": 2,
+    "text" : "C-Lisp",
+    "username" : "A great language",
+    "avatar" : "images/clisp.png",
+    "favorite": false
   }
 ]

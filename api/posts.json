@@ -19,5 +19,13 @@
     "username" : "C-Lisp",
     "avatar" : "images/clisp.png",
     "favorite": false
+  },
+  {
+    "uid": 3,
+    "text" : "The IDE",
+    "username" : "IntellijIdea",
+    "avatar" : "images/intellijidea.png",
+    "favorite": false
   }
+
 ]

@@ -31302,11 +31302,11 @@ paper-toolbar ::shadow iron-icon {
 
       <paper-toolbar>
         <paper-icon-button icon="menu" hidden$="{{!narrow}}" on-tap="_toggleDrawer"></paper-icon-button>
-        <paper-icon-button icon="arrow-back" on-tap="_goToHome" hidden$="{{narrow}}"></paper-icon-button>
+       <!-- <paper-icon-button icon="arrow-back" on-tap="_goToHome" hidden$="{{narrow}}"></paper-icon-button>-->
         <h1>{{title}}</h1>
-        <div id="countdown" title="Time remaining" class="flex" hidden$="{{!_isPositiveNum(duration)}}">
+        <!--<div id="countdown" title="Time remaining" class="flex" hidden$="{{!_isPositiveNum(duration)}}">
           <iron-icon icon="schedule"></iron-icon> <span>{{remaining}}</span> min remaining
-        </div>
+        </div> -->
       </paper-toolbar>
 
       <paper-drawer-panel narrow="{{narrow}}" selected="{{currDrawer}}" id="drawer">

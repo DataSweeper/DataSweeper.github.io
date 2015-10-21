@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="bower_components/google-codelab-elements/google-codelab-elements.html">
+  <!-- TODO: add theming
+  <link rel="import" href="../../bower_components/google-codelab-elements/theme-web.html">
+  <style is="custom-style" include="google-codelab-theme-web"></style>
+  * the above will replace this:
+  <link rel="stylesheet" href="../../codelab_components/google-codelab/themes/web.css">
+  -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body unresolved class="fullbleed">
+
+  <google-codelab title="Data" feedback-link="https://github.com/googlecodelabs/polymer-webgl-visualization/issues" environment="web">
+    <google-codelab-step label="About me" duration="1">
+        <img src="img/img-1.png" style="max-width: 300px">
+        <div id="profile-info" class="profile-info">
+          <table>
+            <tr><td><p>Siva Gnanam</p></td></tr>
+            <tr><td><p>Twitter</p></td><td><a href="https://twitter.com/DataSweeper">@DataSweeper</a></td></tr>
+          </table>
+        </div>
+    </google-codelab-step>
+      <google-codelab-step label="Tools">
+        
+      </google-codelab-step>
+      <google-codelab-step label="Thoughts" duration="3">
+        
+      </google-codelab-step>
+      <google-codelab-step label="Likes" duration="3">
+        
+      </google-codelab-step>
+      <google-codelab-step label="Books" duration="3">
+        
+      </google-codelab-step>
+      <google-codelab-step label="Inspiration">
+        
+      </google-codelab-step>
+      
+  </google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+</body>
+</html>

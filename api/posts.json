@@ -1,0 +1,31 @@
+[
+  {
+    "uid": 1,
+    "text" : "Data Sweeper",
+    "username" : "Siva",
+    "avatar" : "images/profilepic.jpg",
+    "favorite": false
+  },
+  {
+    "uid": 2,
+    "text" : "The kernel",
+    "username" : "Linux",
+    "avatar" : "images/Tux.svg",
+    "favorite": false
+  },
+  {
+    "uid": 3,
+    "text" : "A great language",
+    "username" : "C-Lisp",
+    "avatar" : "images/clisp.png",
+    "favorite": false
+  },
+  {
+    "uid": 3,
+    "text" : "The IDE",
+    "username" : "IntellijIdea",
+    "avatar" : "images/intellijidea.png",
+    "favorite": false
+  }
+
+]

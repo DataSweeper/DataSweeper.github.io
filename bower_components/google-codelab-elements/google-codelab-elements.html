@@ -28218,7 +28218,7 @@ Example:
       }
 
       .instructions ::content table {
-        border-spacing: 0;
+        border-spacing: 100px;
       }
 
       .instructions ::content td {
@@ -28645,9 +28645,9 @@ Example:
     :host {
       display: block;
       position: relative;
-      background-color: white;
-      padding: 20px;
-      width: 100%;
+      background-color: rgb(245, 245, 245);
+    /*  padding: 2px; */
+      width: 100px;
       font-size: 1.2rem;
       font-weight: 300;
     }
@@ -28675,17 +28675,18 @@ Example:
     <content></content>
   </template>
   <script>
-  Polymer({});
+  Polymer({
+  is: 'my-card'
+  });
   </script>
 </dom-module>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <dom-module id="tools-list">
   <template>
-    <style>
-    </style>
-    <div id="cards"></div>
-</template>
+   <!--<div id="list"></div> -->
+   <content></content>
+  </template>
   <script>
 
   Polymer({
@@ -28708,28 +28709,24 @@ Example:
     },
     s: "",
     handleResponse: function(r) {
-    x = 0
-    y = 0
+   // x = 0
+   // y = 0
+   this.s += '<table>'
     for(i=0; i < r.length; i++) {
-    x += 200;
     if (i % 3 == 0 ) {
-      if (i == 0) {
-        x = 0
-      }
-      else {
-        x = 0;
-        y += 300;
-      }
+      if (i === 0)
+        this.s += '<tr>'
+      else
+        this.s += '</tr><tr>'
     }
-    this.s += '<div id="card" class="card" style="left: ' + x + 'px; top: '+ y +'px; position: absolute;"><my-card><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].username + '</h2><p>' + r[i].text + '</p></my-card></div>'
+    this.s += '<td><my-card data-dialog="scrolling"><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].username + '</h2><p>' + r[i].text + '</p></my-card></td>';
    }
+   this.s += '</tr></table>'
    html = $.parseHTML( this.s )
-   for (i =0; i < html.length; i++) {
-     //Polymer.dom(self.$.cards)
+   for (var i =0; i < html.length; i++) {
+    Polymer.dom(this).node.appendChild(html[i])
    }
-  //console.log(Polymer.dom(self));
   },
-
   });
 
   </script>

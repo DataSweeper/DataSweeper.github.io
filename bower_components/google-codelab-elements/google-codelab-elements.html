@@ -28669,17 +28669,39 @@ Example:
       border-radius: 50%;
       margin: 10px;
     }
+
+paper-dialog-scrollable {
+  display: block;
+  position: relative;
+}
     </style>
 
     <!--<div class="card-header" layout horizontal center>-->
-      <content select="img"></content>
-      <content select="h2"></content>
- <!--   </div> -->
     <content></content>
+   
   </template>
   <script>
   Polymer({
-  is: 'my-card'
+  is: 'my-card',
+
+  listeners: {
+    'tap': 'regularTap'
+   },
+
+   regularTap: function(e) {
+     console.log(this.id)
+     if (this.id == 0) {
+       var t = this.getElementsByTagName("paper-dialog");
+       t[0].style.cssText = "outline: none; position: fixed; z-index: 20; top: 70px; left: 280px;height: /*500px;width: 700px;*/"
+       this.id = 1;
+     }
+     else {
+       var t = this.getElementsByTagName("paper-dialog");
+       t[0].style.cssText = "outline: none; display: none;"
+       this.id = 0;
+     }
+   },
+
   });
   </script>
 </dom-module>
@@ -28701,7 +28723,7 @@ Example:
       })
       this.handleResponse(d)*/
       $.ajax({
-        url: 'api/posts.json',
+        url: 'api/tools-list.json',
         dataType: 'json',
         async: false,
         success: function(data) {
@@ -28722,10 +28744,10 @@ Example:
       else
         this.s += '</tr><tr>'
     }
-    this.s += '<td><my-card data-dialog="scrolling"><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].username + '</h2><p>' + r[i].text + '</p></my-card></td>';
+    this.s += '<td><my-card id="0"><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].title + '</h2><p></p> <paper-dialog id="0" role="dialog" tabindex="-1" aria-modal="false" class="x-scope paper-dialog-0" aria-labelledby="paper-dialog-header-823" style="outline: none; display: none"><h2 id="paper-dialog-header-823">' + r[i].title  + '</h2>  <paper-dialog-scrollable class="x-scope paper-dialog-scrollable-0 no-padding can-scroll"> <div id="scrollable" class="scrollable style-scope paper-dialog-scrollable" style="box-sizing: border-box; max-height: 81.78125px; max-width: 975px;">'+ r[i].text  +'</div></paper-dialog-scrollable><div class="buttons"><paper-button dialog-dismiss="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">Cancel</paper-button><paper-button dialog-confirm="" autofocus="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">OK<paper-ripple class="style-scope paper-button"><div id="background" class="style-scope paper-ripple"></div><div id="waves" class="style-scope paper-ripple"></div></paper-ripple></paper-button></div></paper-dialog></my-card></td>';
    }
    this.s += '</tr></table>'
-   this.s += '<paper-dialog> <h2>Header</h2> <paper-dialog-scrollable> Lorem ipsum... </paper-dialog-scrollable> <div class="buttons"> <paper-button dialog-dismiss>Cancel</paper-button> <paper-button dialog-confirm>Accept</paper-button></div></paper-dialog>'
+   this.s += 
    html = $.parseHTML( this.s )
    for (var i =0; i < html.length; i++) {
     Polymer.dom(this).node.appendChild(html[i])
@@ -31429,14 +31451,14 @@ paper-toolbar ::shadow iron-icon {
 
     </paper-header-panel>
 
-    <paper-dialog id="resumeDialog" modal="">
+   <paper-dialog id="resumeDialog" modal="">
       <h2>Would you like to resume where you left off?</h2>
       <p><span>{{_storedStep.step}}</span>: <span>{{_storedStep.label}}</span></p>
       <div class="buttons">
         <paper-button dialog-dismiss="" on-click="_stateInit">Cancel</paper-button>
         <paper-button dialog-confirm="" on-click="_resume" autofocus="">Resume</paper-button>
       </div>
-    </paper-dialog>
+    </paper-dialog> 
 
   </template>
   <script>

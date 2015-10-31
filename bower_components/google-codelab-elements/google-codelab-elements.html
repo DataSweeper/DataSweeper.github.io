@@ -28692,7 +28692,7 @@ paper-dialog-scrollable {
      console.log(this.id)
      if (this.id == 0) {
        var t = this.getElementsByTagName("paper-dialog");
-       t[0].style.cssText = "outline: none; position: fixed; z-index: 20; top: 70px; left: 280px;height: /*500px;width: 700px;*/"
+       t[0].style.cssText = "outline: none; position: fixed; z-index: 20; top: 70px; left: 230px;height: /*500px;width: 700px;*/"
        this.id = 1;
      }
      else {
@@ -28744,7 +28744,7 @@ paper-dialog-scrollable {
       else
         this.s += '</tr><tr>'
     }
-    this.s += '<td><my-card id="0"><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].title + '</h2><p></p> <paper-dialog id="0" role="dialog" tabindex="-1" aria-modal="false" class="x-scope paper-dialog-0" aria-labelledby="paper-dialog-header-823" style="outline: none; display: none"><h2 id="paper-dialog-header-823">' + r[i].title  + '</h2>  <paper-dialog-scrollable class="x-scope paper-dialog-scrollable-0 no-padding can-scroll"> <div id="scrollable" class="scrollable style-scope paper-dialog-scrollable" style="box-sizing: border-box; max-height: 81.78125px; max-width: 975px;">'+ r[i].text  +'</div></paper-dialog-scrollable><div class="buttons"><paper-button dialog-dismiss="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">Cancel</paper-button><paper-button dialog-confirm="" autofocus="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">OK<paper-ripple class="style-scope paper-button"><div id="background" class="style-scope paper-ripple"></div><div id="waves" class="style-scope paper-ripple"></div></paper-ripple></paper-button></div></paper-dialog></my-card></td>';
+    this.s += '<td><my-card id="0"><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].title + '</h2><p></p> <paper-dialog id="0" role="dialog" tabindex="-1" aria-modal="false" class="x-scope paper-dialog-0" aria-labelledby="paper-dialog-header-823" style="outline: none; display: none"><h2 id="paper-dialog-header-823">' + r[i].title  + '</h2>  <paper-dialog-scrollable class="x-scope paper-dialog-scrollable-0 no-padding can-scroll"> <div id="scrollable" class="scrollable style-scope paper-dialog-scrollable" style="box-sizing: border-box; /*max-height: 81.78125px;*/ max-width: 975px;">'+ r[i].text  +'</div></paper-dialog-scrollable><div class="buttons"><paper-button dialog-dismiss="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">Cancel</paper-button><paper-button dialog-confirm="" autofocus="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">OK<paper-ripple class="style-scope paper-button"><div id="background" class="style-scope paper-ripple"></div><div id="waves" class="style-scope paper-ripple"></div></paper-ripple></paper-button></div></paper-dialog></my-card></td>';
    }
    this.s += '</tr></table>'
    this.s += 

@@ -48,5 +48,10 @@
     "title" : "The 3 Mistakes of My Life",
     "avatar" : "img/books-list/3_Mistakes_of_My_Life.jpg",
     "text" : "<p>The 3 Mistakes of My Life</p>"
+  },
+  {
+    "title" : "Five Point Someone",
+    "avatar" : "img/books-list/FivePointSomeone.jpg",
+    "text" : "<p>Five Point Someone</p>"
   }
 ]

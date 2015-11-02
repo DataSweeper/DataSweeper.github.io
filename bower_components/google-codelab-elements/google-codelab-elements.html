@@ -28736,7 +28736,55 @@ paper-dialog-scrollable {
    // x = 0
    // y = 0
    this.s += '<table>'
-    for(i=0; i < r.length; i++) {
+    for(var i = 0; i < r.length; i++) {
+    if (i % 3 == 0 ) {
+      if (i === 0)
+        this.s += '<tr>'
+      else
+        this.s += '</tr><tr>'
+    }
+    this.s += '<td><my-card id="0"><img src="' + r[i].avatar + '" width="70" height="70"> <h2>' + r[i].title + '</h2><p></p> <paper-dialog id="0" role="dialog" tabindex="-1" aria-modal="false" class="x-scope paper-dialog-0" aria-labelledby="paper-dialog-header-823" style="outline: none; display: none"><h2 id="paper-dialog-header-823">' + r[i].title  + '</h2>  <paper-dialog-scrollable class="x-scope paper-dialog-scrollable-0 no-padding can-scroll"> <div id="scrollable" class="scrollable style-scope paper-dialog-scrollable" style="box-sizing: border-box; /*max-height: 81.78125px;*/ max-width: 975px;">'+ r[i].text  +'</div></paper-dialog-scrollable><div class="buttons"><paper-button dialog-dismiss="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">Cancel</paper-button><paper-button dialog-confirm="" autofocus="" role="button" tabindex="0" animated="" aria-disabled="false" class="x-scope paper-button-0">OK<paper-ripple class="style-scope paper-button"><div id="background" class="style-scope paper-ripple"></div><div id="waves" class="style-scope paper-ripple"></div></paper-ripple></paper-button></div></paper-dialog></my-card></td>';
+   }
+   this.s += '</tr></table>'
+   this.s += 
+   html = $.parseHTML( this.s )
+   for (var i =0; i < html.length; i++) {
+    Polymer.dom(this).node.appendChild(html[i])
+   }
+  },
+  });
+
+  </script>
+
+</dom-module>
+
+<dom-module id="books-list">
+  <template>
+   <!--<div id="list"></div> -->
+   <content></content>
+  </template>
+  <script>
+
+  Polymer({
+    is: 'books-list',
+    created: function() {
+      var d;
+      $.ajax({
+        url: 'api/books-list.json',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+          d = data
+        }
+     })
+     this.handleResponse(d)
+    },
+    s: "",
+    handleResponse: function(r) {
+   // x = 0
+   // y = 0
+   this.s += '<table>'
+    for(var i = 0; i < r.length; i++) {
     if (i % 3 == 0 ) {
       if (i === 0)
         this.s += '<tr>'

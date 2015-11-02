@@ -1,8 +1,18 @@
 [
   {
     "title" : "Listy",
-    "avatar" : "img/listy.jpg",
+    "avatar" : "img/tools-list/listy.jpg",
     "text" : "<p>We all know The List feature in twitter is very precious, But how much we utilizing that. We often missing important tweets from the lists we have at any important time. Listy will notify you the new tweets from the lists, When you you click on the notification it will open up twitter post in new tab. In Listy you can also manage multiple accounts. In the future listy will have notification for a single user and add/delete for both list and members of the list. Get the notification for the tweets matter to you.</p> <h5> To get Started </h5> <ul> <li>Install the Lisy Extension</li> <li> Go to options page and add a twitter account </li> <li> Select list option  </li> <li> In List page you can select what account and list to notify/not notify. </li></ul>"
+  },
+  {
+    "title" : "Linux (Kernel)",
+    "avatar" : "img/tools-list/linux.jpg",
+    "text" : "<p>I hope it is the best kernel program ever written. I admired its development and the people behind that, I absolutly want to learn about linux as much as i can.</p>"
+  },
+  {
+    "title" : "Martian (OS)",
+    "avatar" : "img/tools-list/Martian.jpg",
+    "text" : "<p>Operating system for myself.</p>"
   }
 
 ]

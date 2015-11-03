@@ -13,6 +13,11 @@
     "title" : "Martian (OS)",
     "avatar" : "img/tools-list/Martian.jpg",
     "text" : "<p>Operating system for myself.</p>"
+  },
+  {
+    "title" : "Raspberry Pi",
+    "avatar" : "img/tools-list/raspberrypi.png",
+    "text" : "<p>Raspberry Pi is another interesting project out there. It is really interesting to have handsone with that.</p>"
   }
 
 ]

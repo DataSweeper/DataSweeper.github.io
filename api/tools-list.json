@@ -18,6 +18,11 @@
     "title" : "Raspberry Pi",
     "avatar" : "img/tools-list/raspberrypi.png",
     "text" : "<p>Raspberry Pi is another interesting project out there. It is really interesting to have handsone with that.</p>"
+  },
+  {
+    "title" : "India.pop()",
+    "avatar" : "img/tools-list/indian_population_2011.jpg",
+    "text" : "<p>Infografics for indian population.</p>"
   }
 
 ]

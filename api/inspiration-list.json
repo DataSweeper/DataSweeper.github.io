@@ -9,5 +9,10 @@
   "title" : "Bill Gates",
   "avatar" : "img/inspiration-list/bill_gates.jpg",
   "text" : "<p>Your most unhappy customers are your greatest source of learning.</p><p>Success is a lousy teacher. It seduces smart people into thinking they cannot lose.</p><p>As we look ahead into the next century, leaders will be those who empower others.</p><p>If you cannott make it good, at least make it look good.</p><p>I really had a lot of dreams when I was a kid, and I think a great deal of that grew out of the fact that I had a chance to read a lot.</p><p>Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important.</p><p>I believe that if you show people the problems and you show them the solutions they will be moved to act.</p><p>The Internet is becoming the town square for the global village of tomorrow.</p><p>Intellectual property has the shelf life of a banana.</p><p>Television is not real life. In real life people actually have to leave the coffee shop and go to jobs.</p>"
+  },
+  {
+    "title" : "Linus Torvalds",
+    "avatar" : "img/linustorvalds.jpg",
+    "text" : "<p>Talk is cheap. Show me the code.</p><p>Software is like sex: it is better when it is free.</p><p>I am doing a (free) operating system (just a hobby, wont be big and professional like gnu) for 386(486) AT clones.</p><p>The Linux philosophy is Laugh in the face of danger. Oops. Wrong One. Do it yourself. Yes, that is it</p>.<p>Microsoft isnot evil, they just make really crappy operating systems.</p><p>Intelligence is the ability to avoid doing work, yet getting the work done.</p>"
   }
 ]

@@ -23,6 +23,11 @@
     "title" : "India.pop()",
     "avatar" : "img/tools-list/indian_population_2011.jpg",
     "text" : "<p>Infografics for indian population.</p>"
+  },
+  {
+    "title" : "Baikał",
+    "avatar" : "img/tools-list/Baikal.jpg",
+    "text" : "<p>Baikal going to be a vk music listener extention for chrome and firefox, primarily for google chrome, Using baikal user can list their My Music, My folder, Popular Music, Suggested Music and Friends Music. User can also make the extention popup to be a seperate window so it can act like online music player, And I hope it won't support multiple account management.</p>"
   }
 
 ]

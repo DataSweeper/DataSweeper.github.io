@@ -1,0 +1,8 @@
+{
+"name" : "Siva Gnanam",
+"nick" : "DataSweeper",
+"work" : "Software Developer",
+"age" : "23>22",
+"body" : {"height" : "173cm", "weight" : "56kg", "bmi" : "18.7"},
+"CurrentLocation" : {"langitude" : "12.831589", "latitude" : "80.049460"}
+}

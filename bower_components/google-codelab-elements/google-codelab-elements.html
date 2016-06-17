@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script>
+
     (function() {
         function resolve() {
             document.body.removeAttribute('unresolved');
@@ -17,6 +18,7 @@
             }
         }
     }());
+
     window.Polymer = {
         Settings: function() {
             var user = window.Polymer || {};
@@ -42,6 +44,7 @@
             };
         }()
     };
+
     (function() {
         var userPolymer = window.Polymer;
         window.Polymer = function(prototype) {
@@ -80,6 +83,7 @@
         }
         Polymer.Class = desugar;
     }());
+
     Polymer.telemetry = {
         registrations: [],
         _regLog: function(prototype) {
@@ -93,6 +97,7 @@
             this.registrations.forEach(this._regLog);
         }
     };
+
     Object.defineProperty(window, 'currentImport', {
         enumerable: true,
         configurable: true,
@@ -100,6 +105,7 @@
             return (document._currentScript || document.currentScript).ownerDocument;
         }
     });
+
     Polymer.RenderStatus = {
         _ready: false,
         _callbacks: [],
@@ -123,6 +129,7 @@
             });
         }
     };
+
     if (window.HTMLImports) {
         HTMLImports.whenReady(function() {
             Polymer.RenderStatus._catchFirstRender();
@@ -130,8 +137,10 @@
     } else {
         Polymer.RenderStatus._catchFirstRender();
     }
+
     Polymer.ImportStatus = Polymer.RenderStatus;
     Polymer.ImportStatus.whenLoaded = Polymer.ImportStatus.whenReady;
+
     Polymer.Base = {
         __isPolymerInstance__: true,
         _addFeature: function(feature) {
@@ -193,6 +202,7 @@
             return this._logPrefix.concat([this.is]).concat(Array.prototype.slice.call(arguments, 0));
         }
     };
+
     Polymer.Base._logPrefix = function() {
         var color = window.chrome || /firefox/i.test(navigator.userAgent);
         return color ? [
@@ -200,6 +210,7 @@
             'font-weight: bold; background-color:#EEEE00;'
         ] : ['[%s::%s]:'];
     }();
+
     Polymer.Base.chainObject = function(object, inherited) {
         if (object && inherited && object !== inherited) {
             if (!Object.__proto__) {
@@ -209,7 +220,9 @@
         }
         return object;
     };
+
     Polymer.Base = Polymer.Base.chainObject(Polymer.Base, HTMLElement.prototype);
+
     if (window.CustomElements) {
         Polymer.instanceof = CustomElements.instanceof;
     } else {
@@ -217,9 +230,11 @@
             return obj instanceof ctor;
         };
     }
+
     Polymer.isInstance = function(obj) {
         return Boolean(obj && obj.__isPolymerInstance__);
     };
+    
     Polymer.telemetry.instanceCount = 0;
     (function() {
         var modules = {};

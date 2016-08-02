@@ -236,6 +236,7 @@
     };
     
     Polymer.telemetry.instanceCount = 0;
+
     (function() {
         var modules = {};
         var lcModules = {};
@@ -273,7 +274,9 @@
                 }
             }
         });
+
         var cePolyfill = window.CustomElements && !CustomElements.useNative;
+
         document.registerElement('dom-module', DomModule);
 
         function forceDocumentUpgrade() {
@@ -285,7 +288,9 @@
                 }
             }
         }
+
     }());
+
     Polymer.Base._addFeature({
         _prepIs: function() {
             if (!this.is) {
@@ -300,6 +305,7 @@
             }
         }
     });
+
     Polymer.Base._addFeature({
         behaviors: [],
         _desugarBehaviors: function() {
@@ -378,6 +384,7 @@
             this._marshalBehavior(this);
         }
     });
+
     Polymer.Base._addFeature({
         _getExtendedPrototype: function(tag) {
             return this._getExtendedNativePrototype(tag);
@@ -396,6 +403,7 @@
             return Object.getPrototypeOf(document.createElement(tag));
         }
     });
+
     Polymer.Base._addFeature({
         _prepConstructor: function() {
             this._factoryArgs = this.extends ? [
@@ -423,7 +431,9 @@
             return elt;
         }
     });
+
     Polymer.nob = Object.create(null);
+
     Polymer.Base._addFeature({
         properties: {},
         getPropertyInfo: function(property) {
@@ -448,6 +458,7 @@
             return p;
         }
     });
+
     Polymer.CaseMap = {
         _caseMap: {},
         dashToCamelCase: function(dash) {
@@ -472,6 +483,7 @@
             });
         }
     };
+
     Polymer.Base._addFeature({
         _prepAttributes: function() {
             this._aggregatedAttributes = {};
@@ -592,7 +604,9 @@
             }
         }
     });
+
     Polymer.version = '1.1.5';
+
     Polymer.Base._addFeature({
         _registerFeatures: function() {
             this._prepIs();
@@ -611,7 +625,9 @@
         }
     });
     </script>
+    
     <script>
+
     Polymer.Base._addFeature({
         _prepTemplate: function() {
             this._template = this._template || Polymer.DomModule.import(this.is, 'template');
@@ -633,6 +649,7 @@
             return dom;
         }
     });
+
     (function() {
         var baseAttachedCallback = Polymer.Base.attachedCallback;
         Polymer.Base._addFeature({
@@ -700,6 +717,7 @@
             }
         });
     }());
+
     Polymer.ArraySplice = function() {
         function newSplice(index, removed, addedCount) {
             return {
@@ -870,6 +888,7 @@
         };
         return new ArraySplice();
     }();
+
     Polymer.EventApi = function() {
         var Settings = Polymer.Settings;
         var EventApi = function(event) {
@@ -927,6 +946,7 @@
             factory: factory
         };
     }();
+
     Polymer.domInnerHTML = function() {
         var escapeAttrRegExp = /[&\u00A0"]/g;
         var escapeDataRegExp = /[&\u00A0<>]/g;
@@ -1033,6 +1053,7 @@
             getInnerHTML: getInnerHTML
         };
     }();
+
     Polymer.DomApi = function() {
         'use strict';
         var Settings = Polymer.Settings;
@@ -1790,6 +1811,7 @@
             factory: factory
         };
     }();
+
     (function() {
         Polymer.Base._addFeature({
             _prepShady: function() {
@@ -2007,6 +2029,7 @@
             _elementAdd: function() {},
             _elementRemove: function() {}
         });
+
         var saveLightChildrenIfNeeded = Polymer.DomApi.saveLightChildrenIfNeeded;
         var getLightChildren = Polymer.DomApi.getLightChildren;
         var matchesSelector = Polymer.DomApi.matchesSelector;
@@ -2106,6 +2129,7 @@
             }
         }
     }());
+
     if (Polymer.Settings.useShadow) {
         Polymer.Base._addFeature({
             _poolContent: function() {},
@@ -2120,7 +2144,9 @@
             }
         });
     }
+
     Polymer.DomModule = document.createElement('dom-module');
+
     Polymer.Base._addFeature({
         _registerFeatures: function() {
             this._prepIs();
@@ -2146,6 +2172,7 @@
         _marshalBehavior: function(b) {}
     });
     </script>
+
     <script>
     Polymer.nar = [];
     Polymer.Annotations = {
@@ -2303,6 +2330,7 @@
             return !parent ? root : Polymer.Annotations._localSubTree(parent, root)[annote.index];
         }
     };
+
     (function() {
         function resolveCss(cssText, ownerDocument) {
             return cssText.replace(CSS_URL_RX, function(m, pre, url, post) {
@@ -2333,6 +2361,7 @@
             resolver.href = url;
             return resolver.href || url;
         }
+
         var tempDoc;
         var tempDocBase;
 
@@ -2349,7 +2378,9 @@
         function getUrlResolver(ownerDocument) {
             return ownerDocument.__urlResolver || (ownerDocument.__urlResolver = ownerDocument.createElement('a'));
         }
+
         var CSS_URL_RX = /(url\()([^)]*)(\))/g;
+
         var URL_ATTRS = {
             '*': [
                 'href',
@@ -2359,6 +2390,7 @@
             ],
             form: ['action']
         };
+
         var BINDING_RX = /\{\{|\[\[/;
         Polymer.ResolveUrl = {
             resolveCss: resolveCss,
@@ -2366,6 +2398,7 @@
             resolveUrl: resolveUrl
         };
     }());
+
     Polymer.Base._addFeature({
         _prepAnnotations: function() {
             if (!this._template) {
@@ -2476,6 +2509,7 @@
             }, this);
         }
     });
+
     Polymer.Base._addFeature({
         listeners: {},
         _listenListeners: function(listeners) {
@@ -2558,6 +2592,7 @@
             node.removeEventListener(eventName, handler);
         }
     });
+
     (function() {
         'use strict';
         var HAS_NATIVE_TA = typeof document.head.style.touchAction === 'string';
@@ -2589,7 +2624,9 @@
                 return false;
             }
         }();
+
         var IS_TOUCH_ONLY = navigator.userAgent.match(/iP(?:[oa]d|hone)|Android/);
+
         var mouseCanceller = function(mouseEvent) {
             mouseEvent[HANDLED_OBJ] = {
                 skip: true
@@ -4240,6 +4277,7 @@
             }
         });
     }());
+
     Polymer.Base._addFeature({
         resolveUrl: function(url) {
             var module = Polymer.DomModule.import(this.is);
@@ -4251,6 +4289,7 @@
             return Polymer.ResolveUrl.resolveUrl(url, root);
         }
     });
+
     Polymer.CssParse = function() {
         var api = {
             parse: function(text) {
@@ -4384,6 +4423,7 @@
         };
         return api;
     }();
+
     Polymer.StyleUtil = function() {
         return {
             MODULE_STYLES_SELECTOR: 'style, link[rel=import][type~=css], template',
@@ -4492,6 +4532,7 @@
             ruleTypes: Polymer.CssParse.types
         };
     }();
+
     Polymer.StyleTransformer = function() {
         var nativeShadow = Polymer.Settings.useNativeShadow;
         var styleUtil = Polymer.StyleUtil;
@@ -4672,6 +4713,7 @@
         var CLASS = 'class';
         return api;
     }();
+
     Polymer.StyleExtends = function() {
         var styleUtil = Polymer.StyleUtil;
         return {
@@ -4743,6 +4785,7 @@
             }
         };
     }();
+
     (function() {
         var prepElement = Polymer.Base._prepElement;
         var nativeShadow = Polymer.Settings.useNativeShadow;
@@ -4837,6 +4880,7 @@
             }
         });
     }());
+
     Polymer.StyleProperties = function() {
         'use strict';
         var nativeShadow = Polymer.Settings.useNativeShadow;
@@ -30328,7 +30372,9 @@ Example:
                 </style>
             </template>
         </dom-module>
+
         <dom-module id="google-codelab-step" assetpath="/">
+
             <template>
                 <style include="shared-style"></style>
                 <style include="step-style"></style>
@@ -30340,7 +30386,9 @@ Example:
                     </div>
                 </div>
             </template>
+
             <script>
+
             Polymer({
                 is: 'google-codelab-step',
 
@@ -30413,6 +30461,7 @@ Example:
             });
             </script>
         </dom-module>
+
         <dom-module id="iron-icon" assetpath="../iron-icon/">
             <style>
             :host {
@@ -30425,8 +30474,10 @@ Example:
                 height: var(--iron-icon-height, 24px);
             }
             </style>
+
             <template>
             </template>
+
             <script>
             Polymer({
 
@@ -30518,9 +30569,10 @@ Example:
             });
             </script>
         </dom-module>
+
         <dom-module id="my-card" assetpath="/">
-            <template>
-                <style>
+
+         <style>
                 :host {
                     display: block;
                     cursor: pointer;
@@ -30563,7 +30615,8 @@ Example:
                     position: relative;
                 }
                 </style>
-                <!--<div class="card-header" layout horizontal center>-->
+
+            <template>
                 <content></content>
             </template>
             <script>
@@ -30592,7 +30645,33 @@ Example:
             });
             </script>
         </dom-module>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <dom-module id="item">
+            <style>
+            </style>
+            
+            <template>
+                <content></content>
+            </template>
+            <script>
+            Polymer({
+                is: 'item',
+
+                listeners: {
+                    'tap': 'regularTap'
+                },
+
+                regularTap: function(e) {
+                    //show the page dialog
+
+                }
+            });
+            </script>
+
+        </dom-module>
+
         <dom-module id="tools-list">
             <template>
                 <!--<div id="list"></div> -->
@@ -30685,6 +30764,7 @@ Example:
             });
             </script>
         </dom-module>
+
         <dom-module id="inspiration-list">
             <template>
                 <!--<div id="list"></div> -->
@@ -30729,6 +30809,7 @@ Example:
             });
             </script>
         </dom-module>
+
         <iron-iconset-svg name="icons" size="24">
             <svg>
                 <defs>
@@ -31569,6 +31650,7 @@ Example:
                 </defs>
             </svg>
         </iron-iconset-svg>
+
         <dom-module id="neon-animated-pages" assetpath="../neon-animation/">
             <style>
             :host {
@@ -33502,6 +33584,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         });
         </script>
+
         <dom-module id="paper-icon-button" assetpath="../paper-icon-button/">
             <template strip-whitespace="">
                 <style>
@@ -33591,6 +33674,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             });
             </script>
         </dom-module>
+
         <dom-module id="paper-menu" assetpath="../paper-menu/">
             <style>
             /**
@@ -33646,6 +33730,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
             </template>
         </dom-module>
+
         <script>
         (function() {
 
@@ -33661,6 +33746,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         })();
         </script>
+
         <dom-module id="paper-item-shared-styles" assetpath="../paper-item/">
             <template>
                 <style>
@@ -33676,6 +33762,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </style>
             </template>
         </dom-module>
+
         <dom-module id="paper-item" assetpath="../paper-item/">
             <template>
                 <style include="paper-item-shared-styles"></style>
@@ -33705,6 +33792,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             });
             </script>
         </dom-module>
+
         <dom-module id="codelab-style" assetpath="/">
             <template>
                 <style>
@@ -33850,8 +33938,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
                 </style>
             </template>
+
         </dom-module>
+
         <dom-module id="google-codelab" assetpath="/">
+
             <template>
                 <style include="shared-style"></style>
                 <style include="codelab-style"></style>
@@ -33882,23 +33973,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             </neon-animated-pages>
                         </div>
                     </paper-drawer-panel>
-                    <paper-fab raised="" class="navbutton prevbutton" icon="chevron-left" on-tap="selectPrevious" title="Previous step" hidden$="{{_hideNavFab(currDrawer)}}" disabled$="{{_isFirstStep(selected)}}">
+                   <!-- <paper-fab raised="" class="navbutton prevbutton" icon="chevron-left" on-tap="selectPrevious" title="Previous step" hidden$="{{_hideNavFab(currDrawer)}}" disabled$="{{_isFirstStep(selected)}}">
                     </paper-fab>
                     <paper-fab raised="" class="navbutton nextbutton" icon="chevron-right" title="{{_nextFabTitle(selected)}}" hidden$="{{_hideNavFab(currDrawer)}}" on-tap="selectNext">
                     </paper-fab>
                     <paper-fab raised="" completed="" class="navbutton donebutton" icon="done" on-tap="_goToHome" title="Complete codelab" hidden$="{{_hideDoneFab(currDrawer, selected)}}">
-                    </paper-fab>
+                    </paper-fab> -->
                 </paper-header-panel>
-                <paper-dialog id="resumeDialog" modal="">
+              <!--  <paper-dialog id="resumeDialog" modal="">
                     <h2>Would you like to resume where you left off?</h2>
                     <p><span>{{_storedStep.step}}</span>: <span>{{_storedStep.label}}</span></p>
                     <div class="buttons">
                         <paper-button dialog-dismiss="" on-click="_stateInit">Cancel</paper-button>
                         <paper-button dialog-confirm="" on-click="_resume" autofocus="">Resume</paper-button>
                     </div>
-                </paper-dialog>
+                </paper-dialog> -->
             </template>
+
             <script>
+
             Polymer({
                 is: 'google-codelab',
 
@@ -34110,7 +34203,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     };
                 },
 
-                _stateLoaded: function() {
+              /*  _stateLoaded: function() {
                     // allow everything render and initialize,
                     // especially this.steps which runs at the same init level
                     // as iron-localstorage (on attached).
@@ -34120,11 +34213,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         // 1. user has already visited the codelab in the past
                         // 2. has made at least 1 step
                         // 3. user is landed on the first step
-                        if (this.selected === 0 && this.state.stepIndex > 0) {
-                            this.$.resumeDialog.open();
-                        }
+                       // if (this.selected === 0 && this.state.stepIndex > 0) {
+                       //     this.$.resumeDialog.open();
+                       // }
                     }, 500);
-                },
+                },*/
 
                 _updateStepIndexFromUrl: function() {
                     var step = parseInt(location.hash.slice(1));
@@ -34224,6 +34317,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
             });
             </script>
+
         </dom-module>
     </div>
 </body>

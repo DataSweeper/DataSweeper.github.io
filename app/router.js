@@ -7,7 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('about');
+
+  this.route('tools')
+
+  /*this.route('about');
   this.route('contact');
 
   this.route('admin', function() {
@@ -22,7 +25,7 @@ Router.map(function() {
   });
 
   this.route('authors');
-  this.route('books');
+  this.route('books');*/
 });
 
 export default Router;

@@ -5920,4 +5920,25 @@ th.wider {
 .extra-padding-bottom {
   padding-bottom: 20px; }
 
+/* index page */
+.info {
+  padding: 20px;
+  left: 350px;
+  top: 107px;
+  background-color: #dbe9f5;
+  margin-top: 101px; }
+
+.profimg {
+  max-width: 130px;
+  border-radius: 50%; }
+
+.profile-info ul {
+  display: -webkit-inline-box;
+  list-style-type: none; }
+
+.profile-info ul li {
+  padding-left: 64px;
+  padding-top: 29px;
+  cursor: pointer; }
+
 /*# sourceMappingURL=library-app.css.map */

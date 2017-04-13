@@ -1,0 +1,31 @@
+{{#each interfaceData as |item|}}
+<div class="col-sm-6">
+	<div class="bgpcol">
+	<div class="routerdata">
+		<h4>{{item.host}}</h4>
+	</div>
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="table">
+	<tr>
+		<th>Interface</th>
+		<th>oper-status</th>
+		<th>Description</th>
+		<th>output-pps</th>
+		<th>input-bps</th>
+		<th>input-pps</th>
+		<th>output-bps</th>
+	</tr>
+	{{#each item.interface as |interface|}}
+		<tr  class="{{tolowercase interface.value.oper-status}}">
+			<td>{{interface.name}}</td>
+			<td>{{interface.value.oper-status}}</td>
+			<td>{{interface.value.description}}</td>
+			<td>{{interface.value.traffic-statistics.output-pps}}</td>
+			<td>{{interface.value.traffic-statistics.input-bps}}</td>
+			<td>{{interface.value.traffic-statistics.input-pps}}</td>
+			<td>{{interface.value.traffic-statistics.output-bps}}</td>
+		</tr>
+	{{/each}}
+	</table>
+	</div>
+	</div>
+{{/each}}

@@ -1,0 +1,52 @@
+<div class="container addrouter">
+	<div class="col-sm-7" style="margin-left:17%;">
+		<form role="form" {{action 'handleaddrouter' on='submit'}}>
+		   <div class="form-group">
+		      <label for="host">Host</label>
+		      {{input value=host class="form-control" placeholder="Enter Host"}}
+		   </div>
+		   <div class="form-group">
+		      <label for="port">Port</label>
+  		      {{input value=port class="form-control" placeholder="Enter Port"}}
+		   </div>
+		   <div class="form-group">
+		      <label for="user">Username</label>
+  		      {{input value=username class="form-control" placeholder="Enter Username"}}
+		   </div>
+		   <div class="form-group">
+		      <label for="password">Password</label>
+  		      {{input type="password" value=password class="form-control" placeholder="Enter Password"}}
+		   </div>	   
+		   <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;
+   		   <button type="reset" class="btn btn-default">Reset</button>
+		</form>
+	</div>
+</div>
+
+<div class="list-group routerlist">
+<h4>Router List</h4>
+<ul >
+{{#each model.data as |router|}}
+  <li class="list-group-item">
+  	{{router.attributes.host}}
+  <span><button type="button" class="btn btn-danger" {{action 'handledelete' router on='click'}}>Delete</button></span>
+  </li>
+{{/each}}
+</ul>
+</div>
+
+<!-- 
+<div class="addrouter">
+<form {{action 'handleaddrouter' on='submit'}}>
+	<div class="form-group">
+	<p>host:</p>
+	{{input value=host}}<br>
+	</div>
+	<p>port:</p>{{input value=port}}<br>
+	<p>user:</p>{{input value=username}}<br>
+	<p>password:</p>{{input value=password}}
+	<button type="submit" class="btn btn-primary">Add</button>
+</form>
+</div>
+
+ -->

@@ -1,0 +1,47 @@
+{{#each bgpData as |item|}}
+	<div class="col-sm-6">
+		<div class="bgpcol">
+			<div class="routerdata">
+				<h4>{{item.host}}</h4>
+				<div class="routerdetail">
+					<span class="routerlbl">Down Peer Count</span> <span class="routerval">{{item.down-peer-count}}</span>
+					<span class="routerlbl">Group Count</span> <span class="routerval">{{item.group-count}}</span>
+					<span class="routerlbl">Peer Count</span> <span class="routerval">{{item.peer-count}}</span>
+				</div>
+			</div>
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" class="table">
+				<thead>
+					<tr>
+						<th>Peer-Address</th>
+						<th>Peer-AS</th>
+						<th>Description</th>
+						<th>Flap-Count</th>
+						<th>Peer-State</th>
+						<th>Elapsed-Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each item.bgp-peer as |tdata|}}
+						<tr class="{{tolowercase tdata.peer-state}}">
+							<td><a href="javascript:void(0);" {{action 'showadv' tdata}}>{{tdata.peer-address}}</a></td>
+							<td>{{tdata.peer-as}}</td>
+							<td>{{tdata.description}}</td>
+							<td>{{tdata.flap-count}}</td>
+							<td>{{tdata.peer-state}}</td>
+							<td>{{tdata.elapsed-time}}</td>
+						</tr>
+						{{#if tdata.isShowadv}}
+							<tr>
+								<td colspan="6">
+									{{#each tdata.adv as |adv|}}	
+										<span class="advlst">{{adv}}</span>
+									{{/each}}
+								</td>
+							</tr>
+						{{/if}}
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{{/each}}

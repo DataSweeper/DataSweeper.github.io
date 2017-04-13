@@ -1,0 +1,33 @@
+<p>bgp summary : {{bgpdetail.host}}</p>
+<p>{{bgpdetail.id}}</p>
+
+<table style="width:100%; border: 1px solid black;">
+<tr style="border: 1px solid black;">
+<th style="border: 1px solid black;">group count</th>
+<th style="border: 1px solid black;">down-peer-count</th>
+<th style="border: 1px solid black;">peer-count</th>
+</tr>
+<tr style="border: 1px solid black;">
+<td style="border: 1px solid black;">{{model.group-count}}</td>
+<td style="border: 1px solid black;">{{model.down-peer-count}}</td>
+<td style="border: 1px solid black;">{{model.peer-count}}</td>
+</tr>
+</table>
+<br>
+<table style="width:100%; border: 1px solid black;">
+<tr style="border: 1px solid black;">
+<th style="border: 1px solid black;">peer ip</th>
+<th style="border: 1px solid black;">peer-as</th>
+<th style="border: 1px solid black;">flap-count</th>
+<th style="border: 1px solid black;">description</th>
+</tr>
+{{#each model.bgp-peer as |peer|}}
+<tr style="border: 1px solid black;">
+<td style="border: 1px solid black;">{{peer.peer-address}}</td>
+<td style="border: 1px solid black;">{{peer.peer-as}}</td>
+<td style="border: 1px solid black;">{{peer.flap-count}}</td>
+<td style="border: 1px solid black;">{{peer.description}}</td>
+</tr>
+{{/each}}
+</table>
+

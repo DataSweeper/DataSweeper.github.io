@@ -1,0 +1,16 @@
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="table">
+	<thead>
+		<tr>
+			<th>DNS</th>
+			<th>RouteOwner</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each model.data as |tdata|}}
+			<tr>
+				<td>{{tdata.attributes.url}}</td>
+				<td>{{tdata.owner}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

@@ -1,0 +1,40 @@
+<div class="container addrouter">
+	<div class="col-sm-7" style="margin-left:17%;">
+		<form role="form" 	{{action 'handleaddrouter' on='submit'}}>
+		   <div class="form-group">
+		      <label for="host">Host</label>
+		      {{input value=destination_host class="form-control" placeholder="Enter Host"}}
+		   </div>
+		   <div class="form-group">
+		      <label for="port">router[subnet]</label>
+  		      {{input value=network class="form-control" placeholder="Enter Port"}}
+		   </div>
+		   <div class="form-group">
+		      <label for="user">protocol</label>
+  		      {{input value=protocol class="form-control" placeholder="Enter Username"}}
+		   </div>
+		   <div class="form-group">
+		      <label for="password">ttl</label>
+  		      {{input value=ttl class="form-control bfh-number" data-min="5" data-max="25"}}
+		   </div>
+		   <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;
+   		   <button type="reset" class="btn btn-default">Reset</button>
+		</form>
+	</div>
+</div>
+
+{{log model.data}}
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="table">
+	<tr>
+		<th>Dest</th>
+		<th>network</th>
+		<th>Route owner</th>
+	</tr>
+{{#each model.data as |item|}}
+	<tr>
+	<td>{{item.attributes.destination_host}}</td>
+	<td>{{item.attributes.network}}</td>
+	<td>-</td>
+	</tr>
+{{/each}}
+</table>

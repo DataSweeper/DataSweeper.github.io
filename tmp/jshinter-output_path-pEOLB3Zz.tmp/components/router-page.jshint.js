@@ -1,5 +1,0 @@
-QUnit.module('JSHint | components/router-page.js');
-QUnit.test('should pass jshint', function(assert) {
-  assert.expect(1);
-  assert.ok(false, 'components/router-page.js should pass jshint.\ncomponents/router-page.js: line 37, col 97, \'res\' is defined but never used.\ncomponents/router-page.js: line 44, col 37, Missing semicolon.\ncomponents/router-page.js: line 56, col 37, Missing semicolon.\ncomponents/router-page.js: line 22, col 13, \'$\' is not defined.\ncomponents/router-page.js: line 23, col 13, \'$\' is not defined.\ncomponents/router-page.js: line 24, col 13, \'$\' is not defined.\ncomponents/router-page.js: line 25, col 13, \'$\' is not defined.\ncomponents/router-page.js: line 26, col 13, \'$\' is not defined.\ncomponents/router-page.js: line 27, col 13, \'$\' is not defined.\ncomponents/router-page.js: line 31, col 39, \'$\' is not defined.\ncomponents/router-page.js: line 32, col 25, \'$\' is not defined.\ncomponents/router-page.js: line 3, col 9, \'formdatatoObj\' is defined but never used.\n\n12 errors');
-});

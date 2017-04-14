@@ -76,3 +76,25 @@ th.wider {
     padding-top: 29px;
     cursor: pointer;
 }
+
+.tools-block {
+    display: inline-table;
+    cursor: pointer;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 100px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.08);
+    border: 1px solid #dbe3e7;
+    padding: 20px;
+
+    img {
+      max-width: 130px;
+      border-radius: 50%;
+    }
+    
+    p {
+      text-align: center;
+    }
+}

@@ -1040,7 +1040,7 @@ define('library-app/routes/tools/view', ['exports'], function (exports) {
     exports['default'] = Ember.Route.extend({
         ajax: Ember.inject.service(),
         model: function model(param) {
-            return this.get('ajax').raw('http://localhost:4200/' + param.id + '.html', {
+            return this.get('ajax').raw('https://datasweeper.github.io/' + param.id + '.html', {
                 dataType: 'html'
             });
         }
@@ -1177,6 +1177,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("library-app/app")["default"].create({"name":"library-app","version":"2.10.0+9b4f63d5"});
+  require("library-app/app")["default"].create({"name":"library-app","version":"2.10.0+9b8e0066"});
 }
 //# sourceMappingURL=library-app.map

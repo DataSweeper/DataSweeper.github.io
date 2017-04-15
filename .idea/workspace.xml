@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0701d89-3dee-45ab-948c-c5cdcb971879" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/tools/view.js" afterPath="$PROJECT_DIR$/app/routes/tools/view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/assets/library-app.css.map" afterPath="$PROJECT_DIR$/dist/assets/library-app.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/assets/library-app.js" afterPath="$PROJECT_DIR$/dist/assets/library-app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/assets/library-app.map" afterPath="$PROJECT_DIR$/dist/assets/library-app.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="$PROJECT_DIR$/dist/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/tests/index.html" afterPath="$PROJECT_DIR$/dist/tests/index.html" />
     </list>
     <ignored path="DataSweeper.github.io.iws" />
     <ignored path=".idea/workspace.xml" />

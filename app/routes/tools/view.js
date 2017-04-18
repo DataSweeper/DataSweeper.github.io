@@ -1,7 +1,7 @@
 export default Ember.Route.extend({
     ajax: Ember.inject.service(),
     model: function(param) {
-        return this.get('ajax').raw('http://localhost:4200/'+param.id+'.html', {
+        return this.get('ajax').raw('https://datasweeper.github.io/'+param.id+'.html', {
          dataType: 'html',
          });
     }

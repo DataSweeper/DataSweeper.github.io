@@ -462,7 +462,7 @@ define('library-app/tests/router.jshint.lint-test', ['exports'], function (expor
   QUnit.module('JSHint | router.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'router.js should pass jshint.\nrouter.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 4, col 1, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nrouter.js: line 12, col 43, Missing semicolon.\nrouter.js: line 33, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n5 errors');
+    assert.ok(false, 'router.js should pass jshint.\nrouter.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 4, col 1, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nrouter.js: line 12, col 43, Missing semicolon.\nrouter.js: line 16, col 43, Missing semicolon.\nrouter.js: line 37, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n6 errors');
   });
 });
 define('library-app/tests/routes/about.jshint.lint-test', ['exports'], function (exports) {
@@ -508,6 +508,15 @@ define('library-app/tests/routes/authors.jshint.lint-test', ['exports'], functio
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(false, 'routes/authors.js should pass jshint.\nroutes/authors.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/authors.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/authors.js: line 5, col 3, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nroutes/authors.js: line 11, col 5, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nroutes/authors.js: line 15, col 5, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nroutes/authors.js: line 20, col 5, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n6 errors');
+  });
+});
+define('library-app/tests/routes/blog/view.jshint.lint-test', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/blog/view.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/blog/view.js should pass jshint.\nroutes/blog/view.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/blog/view.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/blog/view.js: line 6, col 32, Missing semicolon.\n\n3 errors');
   });
 });
 define('library-app/tests/routes/books.jshint.lint-test', ['exports'], function (exports) {
@@ -579,7 +588,7 @@ define('library-app/tests/routes/tools/view.jshint.lint-test', ['exports'], func
   QUnit.module('JSHint | routes/tools/view.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/tools/view.js should pass jshint.\nroutes/tools/view.js: line 1, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n1 error');
+    assert.ok(false, 'routes/tools/view.js should pass jshint.\nroutes/tools/view.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/tools/view.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/tools/view.js: line 6, col 32, Missing semicolon.\n\n3 errors');
   });
 });
 define('library-app/tests/servieces/ajax.jshint.lint-test', ['exports'], function (exports) {

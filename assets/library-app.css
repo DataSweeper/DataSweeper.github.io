@@ -5958,4 +5958,11 @@ th.wider {
   .tools-block p {
     text-align: center; }
 
+section#intro {
+  display: block;
+  width: 500px;
+  position: relative;
+  left: 543px;
+  top: -268px; }
+
 /*# sourceMappingURL=library-app.css.map */

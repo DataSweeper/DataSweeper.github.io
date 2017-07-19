@@ -516,7 +516,7 @@ define('library-app/tests/routes/blog/view.jshint.lint-test', ['exports'], funct
   QUnit.module('JSHint | routes/blog/view.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/blog/view.js should pass jshint.\nroutes/blog/view.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/blog/view.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/blog/view.js: line 6, col 32, Missing semicolon.\n\n3 errors');
+    assert.ok(false, 'routes/blog/view.js should pass jshint.\nroutes/blog/view.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/blog/view.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/blog/view.js: line 6, col 27, Missing semicolon.\n\n3 errors');
   });
 });
 define('library-app/tests/routes/books.jshint.lint-test', ['exports'], function (exports) {

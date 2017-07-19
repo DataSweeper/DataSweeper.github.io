@@ -5879,6 +5879,10 @@ button.close {
     -webkit-transform: scale3D(0, 0, 1);
     transform: scale3D(0, 0, 1); } }
 
+.wave.gif {
+  height: 65px;
+  padding: 3px; }
+
 body {
   padding-top: 20px; }
 

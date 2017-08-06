@@ -5900,12 +5900,14 @@ section.container2 {
   padding: 20px;
   left: 1444px;
   /* top: -68px; */
-  background-color: #dbe9f5;
+  /* background-color: #dbe9f5; */
   /* margin-top: 101px; */
   font: initial;
   font-size: large;
   display: inline-block;
-  width: 378px; }
+  width: 378px;
+  border: 1px solid;
+  border-radius: 25px; }
 
 .tools-block {
   display: inline-table;
@@ -5946,6 +5948,7 @@ section.container2 {
   background-size: cover;
   width: 1024px;
   height: 818px;
+  border-radius: 25px;
   /* background-size: 275px; */
   /* background-position-y: 0px; */
   /* background-position-x: 200px; */

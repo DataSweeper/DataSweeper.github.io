@@ -5887,18 +5887,16 @@ button.close {
   height: 65px;
   padding: 3px; }
 
-section.container2 {
-  display: inline-block;
-  /* display: block; */
-  position: relative;
-  left: 69px;
-  width: 96%; }
-
 /* index page */
+section.container2 {
+  position: absolute;
+  left: 50px;
+  /* display: inline-block; */ }
+
 .info {
-  position: relative;
+  position: fixed;
   padding: 20px;
-  left: 1444px;
+  /* left: 1444px; */
   /* top: -68px; */
   /* background-color: #dbe9f5; */
   /* margin-top: 101px; */
@@ -5907,7 +5905,8 @@ section.container2 {
   display: inline-block;
   width: 378px;
   border: 1px solid;
-  border-radius: 25px; }
+  border-radius: 25px;
+  right: 45px; }
 
 .tools-block {
   display: inline-table;
@@ -5926,34 +5925,28 @@ section.container2 {
   .tools-block p {
     text-align: center; }
 
-.social {
-  display: inline-block;
-  position: relative;
-  top: 62px;
-  left: 1170px; }
-  .social img {
-    height: 30px;
-    width: 30px; }
-  .social ul {
-    list-style: none;
-    display: flex; }
-    .social ul li {
-      padding: 2px; }
+.social ul li {
+  padding: 2px;
+  float: left;
+  list-style-type: none; }
+  .social ul li img {
+    width: 35px;
+    height: 35px; }
+
+.social ul {
+  margin: 0px;
+  margin-left: -40px; }
 
 .home-bg {
   display: inline-block;
-  position: relative;
-  /* background-color: antiquewhite; */
+  position: fixed;
   background-image: url("https://static1.squarespace.com/static/54c95d06e4b04d8d26f97dde/t/57f53c5803596ebe28ae6bd6");
   background-size: cover;
-  width: 1024px;
-  height: 818px;
   border-radius: 25px;
-  /* background-size: 275px; */
-  /* background-position-y: 0px; */
-  /* background-position-x: 200px; */
   background-position: 367px;
-  top: 4px;
-  left: -514px; }
+  background-position: inherit;
+  left: 10px;
+  height: calc(100% - 138px);
+  width: calc(100% - 550px); }
 
 /*# sourceMappingURL=library-app.css.map */

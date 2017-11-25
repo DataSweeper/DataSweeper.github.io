@@ -5983,9 +5983,7 @@ div {
 
 .info {
   padding: 20px;
-  display: inline-block;
-  border: 1px solid;
-  border-radius: 25px; }
+  display: inline-block; }
 
 .tools-block {
   box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.08);

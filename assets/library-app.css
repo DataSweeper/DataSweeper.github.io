@@ -5910,6 +5910,8 @@ button.close {
   line-height: 24px;
   padding: 24px;
   text-transform: uppercase; }
+  .nav__item li {
+    list-style: none; }
 
 .nav a {
   text-decoration: none;

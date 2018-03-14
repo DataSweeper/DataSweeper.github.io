@@ -1,0 +1,87 @@
+<h2 class="blog--heading">Django micro practical series I</h2>
+<p>&nbsp&nbsp&nbsp&nbspThis is the first blog in series of blogs on django i decided to write. How to simply write an application using django framework.<p>
+Topics
+<ul>
+    <li><a href="#topic1">1. Setting up Python3.x and virtual environment.</a></li>
+    <li><a href="#topic2">2. Installing Django.</a></li>
+    <li><a href="#topic3">3. Starting a project.</a></li>
+    <li><a href="#topic4">4. Starting an app.</a></li>
+</ul>
+<h3 id="topic1">1. Setting up Python3.x and virtual environment</h3>
+<br>
+<h4>1.1  Installing Python3.x</h4>
+Check for Python3.x in the system by issuing the following command.
+<p class="code">$ python3 -V</p>
+<p>If you got the following output, then you already having python3 you can skip to setting up virtual environment section.</p>
+Output:
+<p class="code">Python 3.5.2</p>
+<p>If your don't get the above output, Then your system don't have the python3 installed. You have to install it manually.</p>
+
+<p class="code">
+  $ sudo apt-get update
+  $ sudo apt-get -y upgrade
+  $ sudo apt-get install python3.6
+</p>
+<h4>1.2 Installing pip - A python package manager</h4>
+<p class="code">$ sudo apt-get install -y python3-pip</p>
+<h4>1.3 Installing virtualenv - virtual environment</h4>
+<p class="code">$ python3 -m pip install --user virtualenv</p>
+<p>Now you will have virtual environment install, and all the command utilities of virtual environment.<br>
+Create virtual environment using the following command.</p>
+<p class="code">
+  $ virtualenv blog-env<br>
+  $ cd blog-env<br>
+  $ source bin/activate
+</p>
+<p>Now you are in the virtual environment. It won't have any other unwanted python package or anything. It is minimalist python setup to start with.</p>
+<h3 id="topic2"> 2. Installing django </h3>
+<p>Inside your blog-env, Issue the following command to install django.</p>
+<p class="code">
+  $ pip install django<br>
+  $ ipython
+</p>
+<p>Inside ipython terminal</p>
+<p class="code">
+  In [1]: import django<br>
+  In [2]: django.VERSION<br>
+  Out[2]: (2, 0, 2, 'final', 0)
+</p>
+<p>To Go out of ipython terminal</p>
+<p class="code">Cntr + d</p>
+<p>You have installed django.</p>
+<h3 id="topic3"> 3. Starting a project </h3>
+<p>To start a django project issue the following command.</p>
+<p class="code">
+  $ django-admin startproject blogapp<br>
+  $ cd blogapp<br>
+  $ ./manage.py runserver
+</p>
+<p>
+Connect to http://localhost:8000 in your browser, Your project is now running. Lets start a app.
+to Stop the server.
+<p class="code">Cntr + c</p>
+</p>
+<h3 id="topic4">4. Starting an application </h3>
+<p> A django project can have multiple application, right now start an simple appliaction using the below command</p>
+<p class="code">$ ./manage.py startapp blog</p>
+<h4>4.1. Configure index URL and View function.</h4>
+<p>Create urls.py file under blog directory</p>
+<p class="code">
+  blog/urls.py<br><br>
+  from django.urls import path, re_path, include <br>
+  from blog.views import index<br>
+  app_name = "blog"<br>
+  urlpatterns = [<br>
+  &nbsp&nbsp&nbsp&nbsp path('', index, name="index"),<br>
+  ]
+</p>
+<p>open views.py file under blog directory.
+  Add the following code to the file.</p>
+<p class="code">
+  blog/views.py<br><br>
+  from django.shortcuts import render, HttpResponse<br>
+  def index(request):<br>
+  &nbsp&nbsp&nbsp&nbspreturn HttpResponse("Hello World.")
+
+<p>If your server is not running, stat the server. Now refresh the http://localhost:8000. You got hello world in response.
+Woo ha, application is running. To complete the blog application see the next blog (Django micro practical series II.)</p>

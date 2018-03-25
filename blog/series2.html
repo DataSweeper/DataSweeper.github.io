@@ -1,0 +1,342 @@
+<h2 class="blog--heading">Django micro practical series II.</h2>
+<p>In this blog, We are going to develop a blog application.</p>
+Topics
+<ul>
+    <li><a href="#topic1">1. Model.</a></li>
+    <li><a href="#topic2">2. Form.</a></li>
+    <li><a href="#topic3">3. View.</a></li>
+    <li><a href="#topic4">4. URL.</a></li>
+    <li><a href="#topic5">5. Templates.</a></li>
+    <li><a href="#topic6">6. CSS.</a></li>
+    <li><a href="#topic7">7. Migration.</a></li>
+</ul>
+<h3 id="topic1">1. Model</h3>
+<p>open file blog/models.py</p>
+<pre class="code">
+class Post(models.Model):
+    author = models.CharField(max_length=20)
+    title = models.CharField(max_length=50)
+    text = models.TextField()
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+    category = models.CharField(max_length=1, default="2")
+    category = models.IntegerField(choices=CATEGORY_CHOICES, default=1)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title
+</pre>
+The above models represents a table in a actual database. The Class variables are fields in the table. The publish method can be used to make a post published, The publish method will just make a entry for pubilshed_date field in the table if we call it.
+<h3 id="topic2">2. Form</h3>
+open file blog/forms.py
+<pre class="code">
+from django import forms
+
+from blog1.models import Post
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ('author', 'title', 'text')
+
+    author = forms.CharField(
+        max_length=30,
+        required=True,
+        widget=forms.TextInput(attrs={'autofocus': True, 'autocapitalize': 'on', 'type': 'text'})
+    )
+
+    title = forms.CharField(
+        max_length=30,
+        required=True,
+        widget=forms.TextInput(
+            attrs={'autofocus': True, 'autocapitalize': 'on','type': 'text'})
+    )
+
+    text = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'autofocus': True,'autocapitalize':'off', 'type':'text'}))
+</pre>
+Copy the above code to the file.
+<h3 id="topic3">3. View</h3>
+Open blog/views.py
+<pre class="code">
+from django.shortcuts import render, HttpResponse, get_list_or_404, get_object_or_404, redirect
+from django.utils import timezone
+from django.views.generic.base import View
+from django.http.response import HttpResponse, HttpResponseRedirect
+from django.template.response import TemplateResponse
+
+from blog1.forms import PostForm
+from blog1.models import Post
+
+def index(request):
+    return redirect("blog1:postList")
+
+class PostCreate(View):
+
+    def get(self, request):
+        form = PostForm()
+        return TemplateResponse(request, 'post.html', {'form': form})
+
+    def post(self, request):
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.published_date = timezone.now()
+            post.save()
+            return redirect("blog1:postList")
+        else:
+            return HttpResponse("NOT OK")
+
+class PostView(View):
+
+    def get(self, request, id=None):
+        if id:
+            post = get_object_or_404(Post, id=id)
+            return TemplateResponse(request, 'post_view.html', {'post': post})
+        posts = get_list_or_404(Post)
+        return TemplateResponse(request, 'post_list.html', {'posts': posts})
+
+class PostEdit(View):
+
+    def get(self, request, id):
+        print(id)
+        post = get_object_or_404(Post, id=id)
+        form = PostForm(instance=post)
+        return TemplateResponse(request, 'post.html',{'form': form})
+
+    def post(self, request, id):
+        print(id)
+        post = get_object_or_404(Post, id=id)
+        print(post)
+        form = PostForm(request.POST, instance=post)
+        print("before if")
+        if form.is_valid():
+            print("valid")
+            post = form.save(commit=False)
+            post.published_date = timezone.now()
+            post.save()
+            return redirect("blog1:postList")
+        else:
+            return HttpResponse("NOT OK")
+
+class PostDelete(View):
+
+    def get(self, request, id):
+        post = get_object_or_404(Post, id=id)
+        post.delete()
+        return redirect("blog1:postList")
+</pre>
+Copy the above code to the file. The class based views will handle the request as we map them to the urls in the comming section.
+<h3 id="topic4">4. URL</h3>
+open the file: blog/urls.py
+<pre class="code">
+from django.urls import path, re_path, include
+
+from blog1.views import index, PostCreate, PostView, PostEdit, PostDelete
+
+app_name = "blog"
+
+urlpatterns = [
+     path('', index, name="index"),
+     path('post/', PostCreate.as_view(), name="postView"),
+     path('post/<int:id>/', PostView.as_view(), name="postView"),
+     path('post/<int:id>/edit/', PostEdit.as_view(), name="postView"),
+     path('post/<int:id>/delete/', PostDelete.as_view(), name="postView"),
+     path('post-view/', PostView.as_view(), name="postList"),
+
+]
+</pre>
+Make sure the above content is in your urls.py file.
+<h3 id="topic5">5. Templates</h3>
+Following are simple template files. That are actual html with django template code.
+
+Open file: blog/templates/blog_base.html
+<pre class="code">
+&lt;!DOCTYPE html&gt
+&lt;html lang="en"&gt
+    &lt;head&gt
+        &lt;meta charset="UTF-8"&gt
+        &lt;title&gtBlog App&lt;/title&gt
+        &lt;link rel="stylesheet" href="/static/blog/css/blog.css"&gt
+    &lt;/head&gt
+    &lt;body&gt
+    {% block content %}
+    {% endblock %}
+    &lt;/body&gt
+&lt;/html>
+</pre>
+The above code is base template for blog application. That we will use in the other blog  template files.
+
+<p>Open post.html</p>
+
+<pre class="code">
+{% extends 'blog_base.html' %}
+{% block content %}
+	&lt;form method="POST" class="post-form"&gt
+		{% csrf_token %}
+		&lt;div class="field"&gt
+			&lt;input type="text" name="author" style="" value='{{form.author.value|default_if_none:""}}' placeholder="Author name"&gt&lt;/input&gt
+		&lt;/div&gt
+		&lt;div class="field"&gt
+			&lt;textarea name="title" style="" placeholder="Enter your Title here"&gt{{form.title.value|default_if_none:""}}&lt;/textarea&gt
+		&lt;/div&gt
+		&lt;div class="field"&gt
+			&lt;textarea name="text" style="" placeholder="Tell your Story..."&gt{{form.text.value|default_if_none:""}}&lt;/textarea&gt
+		&lt;/div&gt
+		&lt;div&gt
+            &lt;button type="submit" class="button6"&gtSave&lt;/button&gt
+		&lt;/div&gt
+	&lt;/form&gt
+{% endblock %}
+</pre>
+<p>Open file post_list.html</p>
+<pre class="code">
+{% extends 'blog_base.html' %}
+
+{% block content %}
+    &lt;a href="/post/" class="button6"&gtNew&lt;/a&gt
+    {% for post in posts %}
+        &lt;div class="post" &gt
+            &lt;div class="title"&gt
+                &lt;h3&gt&lt;a href="/post/{{post.id}}"&gt{{ post.title }}&lt;/a&gt&lt;/h3&gt
+            &lt;/div&gt
+            &lt;div class="body"&gt
+                &lt;p&gt{{ post.text|linebreaksbr }}&lt;/p&gt
+            &lt;/div&gt
+        &lt;/div&gt
+    {% endfor %}
+{% endblock %}
+</pre>
+open file post_view.html
+
+<pre class="code">
+{% extends 'blog_base.html' %}
+{% block content %}
+    &lt;div class="post" &gt
+         &lt;div class="w3-example" style="margin-bottom:36px;"&gt
+             &lt;div class="title"&gt
+                 &lt;h3&gt{{ post.title }}&lt;/h3&gt
+             &lt;/div&gt
+             &lt;div class="body"&gt
+                 &lt;p&gt{{ post.text|linebreaksbr }}&lt;/p&gt
+             &lt;/div&gt
+             &lt;a href="edit/" class="button6"&gtedit&lt;/a&gt
+             &lt;a href="delete/" class="button6 delete"&gtdelete&lt;/a&gt
+         &lt;/div&gt
+    &lt;/div&gt
+{% endblock %}
+</pre>
+<h3 id="topic6">6. CSS</h3>
+<p>Open css file static/blog/css/blog.css</p>
+<pre class="code">
+.button6{
+    display:inline-block;
+    padding:0.7em 1.4em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.15em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    text-transform:uppercase;
+    font-weight:400;
+    color:#FFFFFF;
+    background-color:#3369ff;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    text-align:center;
+    position:relative;
+}
+
+.button6:active{
+    top:0.1em;
+}
+
+.post .body {
+    border: 1px solid cadetblue;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+a.button6.delete {
+    background-color: red;
+}
+
+form .field {
+    margin: 1%;
+}
+
+form input[type=text] {
+    border: none;
+    border-bottom: 2px solid cadetblue;
+}
+
+form textarea {
+    border: none;
+    border-bottom: 2px solid cadetblue;
+}
+</pre>
+<p>open file static/css/main.css</p>
+<pre class="code">
+.button6{
+    display:inline-block;
+    padding:0.7em 1.4em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.15em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    text-transform:uppercase;
+    font-weight:400;
+    color:#FFFFFF;
+    background-color:#3369ff;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    text-align:center;
+    position:relative;
+}
+
+.button6:active{
+    top:0.1em;
+}
+
+.post .body {
+    border: 1px solid cadetblue;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+a.button6.delete {
+    background-color: red;
+}
+
+form .field {
+    margin: 1%;
+}
+
+form input[type=text] {
+    border: none;
+    border-bottom: 2px solid cadetblue;
+}
+
+form textarea {
+    border: none;
+    border-bottom: 2px solid cadetblue;
+}
+</pre>
+<h3 id="topic7">7. Migration</h3>
+you have created application named blog. Now actual physical tables has to be created. To do that we have create migrations file and then do the actual table migrations.
+
+To create migration files. Run the following commands
+<pre class="code">
+./manage.py makemigrations blog
+</pre>
+To make run the following command
+<pre class="code">
+./manage.py migrate
+</pre>
+Now you created the tables we wanted. Now the blog application should run fine. So now you made it to the next level. Like writing a application. In the next blog we will see how to create accounts application. Through which we will provide accounts feature to the blog application.
